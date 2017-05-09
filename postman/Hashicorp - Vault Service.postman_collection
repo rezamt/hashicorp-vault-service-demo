@@ -1,0 +1,87 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Hashicorp - Vault Service",
+		"_postman_id": "1ba6c0ea-8eeb-423c-412c-e25a69dc3f32",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/v1/sys/init",
+			"request": {
+				"url": "{{PROTOCOL}}://{{SERVER}}:8200/v1/sys/init",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Initialization status"
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/sys/init",
+			"request": {
+				"url": "{{PROTOCOL}}://{{SERVER}}:8200/v1/sys/init",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"secret_shares\": {{secret_shares}}, \"secret_threshold\": {{secret_threshold}} }"
+				},
+				"description": "Initialization status"
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/sys/unseal",
+			"request": {
+				"url": "{{PROTOCOL}}://{{SERVER}}:8200/v1/sys/unseal",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"{{VAULT_KEY}}\"}"
+				},
+				"description": "Initialization status"
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/sys/auth/approle",
+			"request": {
+				"url": "{{PROTOCOL}}://{{SERVER}}:8200/v1/sys/auth/approle",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "X-Vault-Token",
+						"value": "{{VAULT_TOKEN}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"type\":\"approle\"}"
+				},
+				"description": "Initialization status"
+			},
+			"response": []
+		}
+	]
+}
